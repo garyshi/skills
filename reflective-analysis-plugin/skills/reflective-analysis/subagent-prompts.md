@@ -62,16 +62,23 @@ Your job is to find the strongest DISCONFIRMING evidence and to attack the FRAME
    analysis is treated as monolithic that should be decomposed?
 4. Expose hidden assumptions each side relies on; note correlated-failure and
    selection-effect risks; flag stale analogies.
+5. Surface credible QUIET signal: minority, early, or unfashionable views that
+   have a real mechanism or evidence behind them but are under-repeated or waved
+   off as fringe. Popularity is a memetic filter, not a truth filter — do not
+   weight a view by how often it appears, and do not dismiss one for being rare.
 
 Treat every source as positioned, including authoritative ones — vendors/labs
-inflate; dominant narratives drop caveats; weight by independence.
+inflate; dominant narratives drop caveats; weight by independence. Separately,
+remember the aggregate over-represents whatever is catchy and simple and
+under-represents quiet, early, correct-but-unfashionable signal.
 
 (Leaf discipline — labeling, source-tagging, disconfirming search, "Recommended further lenses" — is supplied by the `reflective-leaf` agent definition; no need to repeat it here.)
 
 Output: "Strongest disconfirming evidence" (labeled + source-tagged); "Baseline
 verdict" (is the baseline correct? if not, the corrected characterization +
 evidence); "Frame attacks" (decompositions, idealized-comparison flags, limiting
-cases where the leading claim breaks); "Hidden assumptions per side";
+cases where the leading claim breaks); "Hidden assumptions per side"; "Credible
+quiet signal" (under-heard minority/early views that have a real basis);
 "Recommended further lenses".
 ```
 

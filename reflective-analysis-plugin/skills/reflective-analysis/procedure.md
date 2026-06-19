@@ -166,6 +166,8 @@ Before final synthesis, ask:
 * Did I extrapolate without checking constraints?
 * Did I assume a current bottleneck will remain the bottleneck? That a past bottleneck has disappeared everywhere?
 * Did I treat an obstacle as permanent without asking who might solve it? A plausible solution as inevitable without checking incentives?
+* Did I weight a view by how *often* I saw it repeated, rather than by its argument and evidence? Did I mistake a catchy, over-simplified slogan for the finding it flattened?
+* Did I dismiss a minority, early, or unfashionable view for being *rare* rather than for being *wrong*?
 * Is the answer merely a refined version of the original consensus — and if it diverges nowhere, did any independent analysis actually happen?
 * Am I being contrarian only because novelty is rewarded?
 
