@@ -51,7 +51,7 @@ Never silently turn one category into another. Especially avoid treating extrapo
 
 One **orchestrator** — the main session — runs the whole analysis. It decomposes the question, spawns subagents to investigate independent lenses, and is the *only* place where synthesis happens.
 
-**Subagents are leaves.** A subagent investigates one lens and returns findings. It **must not** invoke this skill (or any analysis skill) and **must not** spawn its own subagents. If it finds that a sub-question deserves deeper work, it says so in its output as a *recommendation*; the orchestrator decides whether to spawn it. Nested spawning produces duplication, lossy multi-level summarization, and fake convergence — never higher quality. (See `procedure.md`.)
+**Subagents are leaves.** A subagent investigates one lens and returns findings. It **must not** invoke this skill (or any analysis skill) and **must not** spawn its own subagents. If it finds that a sub-question deserves deeper work, it says so in its output as a *recommendation*; the orchestrator decides whether to spawn it. Nested spawning produces duplication, lossy multi-level summarization, and fake convergence — never higher quality. This is enforced **mechanically**: spawn every leaf as the `reflective-leaf` agent type, which lacks the `Agent` and `Skill` tools, so nesting is impossible by construction (not left to prompt compliance). See `procedure.md` → "The leaf rule" and `subagent-prompts.md`.
 
 The run is **staged**, and the orchestrator synthesizes at each barrier:
 
