@@ -123,14 +123,14 @@ Don't search broadly for everything relevant. Search for evidence that distingui
 
 # Obstacle-to-Opportunity — orchestration
 
-O2O is Wave 2. Launch it only **after** Stage 2 has returned and the orchestrator has extracted the concrete, named obstacles to the leading thesis. Those obstacles are the agent's input. Do not launch O2O with the Stage-1/Stage-2 agents — if the obstacles don't exist yet, the agent fabricates generic ones, which is the most common failure of this step. The O2O subagent prompt (mission, opportunity-theory template, required output format, capable-player categories) is in `subagent-prompts.md`.
+O2O is Stage 3. Launch it only **after** Stage 2 has returned and the orchestrator has extracted the concrete, named obstacles to the leading thesis. Those obstacles are the agent's input. Do not launch O2O with the Stage-1/Stage-2 agents — if the obstacles don't exist yet, the agent fabricates generic ones, which is the most common failure of this step. The O2O subagent prompt (mission, opportunity-theory template, required output format, capable-player categories) is in `subagent-prompts.md`.
 
 ## One agent or several?
 
 Decide by how *coupled* the obstacles are, not how many there are.
 
 * **Coupled obstacles within one domain** — they share players and evidence and trade off against each other (e.g. verification cost vs. review cost). Use a **single** O2O agent; reasoning about them together is an advantage.
-* **Heterogeneous obstacles spanning domains** — different evidence sources, players, time horizons, little mechanistic interaction (e.g. model-capability trajectory vs. regulatory environment vs. public opinion vs. supply chain). **Fan out, one agent per obstacle** (within the Wave-2 cap). A single agent would dilute depth and let one obstacle's framing bleed into the others.
+* **Heterogeneous obstacles spanning domains** — different evidence sources, players, time horizons, little mechanistic interaction (e.g. model-capability trajectory vs. regulatory environment vs. public opinion vs. supply chain). **Fan out, one agent per obstacle** (within the Stage-3 cap). A single agent would dilute depth and let one obstacle's framing bleed into the others.
 
 Cross-obstacle synthesis — ranking obstacles against each other and deciding which most changes the thesis — is always the orchestrator's job; this is harder, not easier, when the obstacles are non-commensurable, which is exactly why it stays with the orchestrator.
 

@@ -65,7 +65,7 @@ Stage 2 (parallel; both seeded from that brief + the adversarial findings):
 Conditional re-pass (only if triggered; orchestrator-owned):
    frame overturned → re-derive the affected lens on the corrected frame
    + a final adversarial pass against the synthesized judgment
-Wave 2:
+Stage 3:
    Obstacle-to-Opportunity, seeded with the obstacles the orchestrator extracted
    ── orchestrator produces the final judgment ──
 ```
@@ -84,7 +84,7 @@ Hard caps, per phase, counted by the orchestrator across the whole run. Nesting 
 | Stage 2 — first-principles / causal models | ≤ 2 | Opus |
 | Conditional re-pass (triggered only) | ≤ 1 | Opus |
 | Final adversarial vs. the synthesized judgment | ≤ 1 | Opus |
-| Wave 2 — Obstacle-to-Opportunity | ≤ 2 | Opus |
+| Stage 3 — Obstacle-to-Opportunity | ≤ 2 | Opus |
 | (optional) per-finding adversarial verification | ≤ 1 / finding, ≤ 5 total | Sonnet |
 | **Hard total (all phases, nesting = 0)** | **≤ 12** | — |
 
@@ -106,7 +106,7 @@ Each step is one stage of the run above. The detailed procedures live in `proced
 8. **Barrier — synthesize.** Build the provisional judgment; evaluate trend quality and the feedback environment. (See `procedure.md`.)
 9. **Conditional re-pass (triggered only).** If the adversarial/baseline pass overturned the frame the models assumed, or the models conflict and the conflict is unresolved, re-derive the affected lens *once* on the corrected frame, and run a final adversarial pass against the synthesized judgment. Otherwise fold the adversarial caveats into synthesis directly — no new agents. (See `procedure.md`.)
 10. **Extract obstacles.** From the synthesis, name the concrete, specific obstacles to the leading thesis. These are the O2O agent's input.
-11. **Wave 2 — Obstacle-to-Opportunity.** Seeded with the obstacles; single agent or fan-out per the coupling test. (See `procedure.md` for the coupling test and integration; `subagent-prompts.md` for the template.)
+11. **Stage 3 — Obstacle-to-Opportunity.** Seeded with the obstacles; single agent or fan-out per the coupling test. (See `procedure.md` for the coupling test and integration; `subagent-prompts.md` for the template.)
 12. **Run a framing review.** Am I answering the real question? Did framing predetermine the conclusion? Did I treat a trend as fact, an obstacle as permanent, value creation as value capture, or consensus as truth? Am I contrarian only for novelty? (See `procedure.md` for the full checklist.)
 13. **Stop when marginal value falls.** Stop when models are clear, sources repeat, remaining uncertainty is about future events, and the O2O pass has separated solvable from persistent barriers.
 14. **Produce the judgment.** Use the output structure below.

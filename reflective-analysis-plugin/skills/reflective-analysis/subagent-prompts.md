@@ -152,7 +152,7 @@ attacks, which survive, what the judgment should change}.
 
 ## 6. Obstacle-to-Opportunity — model: Opus
 
-Wave 2 only, seeded with the extracted obstacles. Single agent for coupled obstacles; fan out (one per obstacle) for heterogeneous ones — see `procedure.md`. Provide the context listed in `procedure.md` ("Context the orchestrator must provide").
+Stage 3 only, seeded with the extracted obstacles. Single agent for coupled obstacles; fan out (one per obstacle) for heterogeneous ones — see `procedure.md`. Provide the context listed in `procedure.md` ("Context the orchestrator must provide").
 
 ```
 You are an Obstacle-to-Opportunity analyst. Today is {date}.
