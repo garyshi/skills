@@ -1,13 +1,14 @@
-# my-skills
+# garyshi-skills
 
-Personal Claude Code skills. The repo root is **not** itself a plugin — each plugin lives in its own self-contained subdirectory, so the repo can also hold loose skills or other plugins later.
+Personal Claude Code skills, served as a Claude Code **marketplace** (this repo). The repo root holds only the marketplace manifest — a registry that points at the plugins. The root is **not** itself a plugin; each plugin lives in its own self-contained subdirectory, so the repo can host more of them later.
 
 ## Contents
 
 ```
-reflective-analysis-plugin/              # a self-contained Claude Code plugin (also a 1-plugin marketplace)
+.claude-plugin/
+  marketplace.json                       # the marketplace registry (lists the plugins below)
+reflective-analysis-plugin/              # a self-contained Claude Code plugin
   .claude-plugin/
-    marketplace.json                     # registers this dir as a local marketplace
     plugin.json                          # the plugin manifest
   skills/
     reflective-analysis/
@@ -20,19 +21,24 @@ reflective-analysis-plugin/              # a self-contained Claude Code plugin (
 
 ## Install (plugin — recommended)
 
-The marketplace registration is one-time and machine-wide; **enabling** the plugin is per-project, so you can turn it on only where you want it.
+Registering the marketplace is one-time and machine-wide; **enabling** a plugin is per-project, so you turn it on only where you want it.
 
-1. Register the marketplace once:
+1. Register the marketplace once — from GitHub:
    ```
-   /plugin marketplace add /home/gary.shi/repos/my-skills/reflective-analysis-plugin
+   /plugin marketplace add garyshi/skills
    ```
-2. Enable it **per project** — either via `/plugin` (install `reflective-analysis@reflective-analysis-local` at project scope), or add to that project's `.claude/settings.json`:
+   …or from a local checkout (point at the repo root, not the plugin subdir):
+   ```
+   /plugin marketplace add <path-to-your-clone-of-this-repo>
+   ```
+   Either way it registers under the name in `marketplace.json` — **`garyshi-skills`**.
+2. Enable the plugin **per project** — via `/plugin` (install `reflective-analysis@garyshi-skills` at project scope), or add to that project's `.claude/settings.json`:
    ```json
-   { "enabledPlugins": { "reflective-analysis@reflective-analysis-local": true } }
+   { "enabledPlugins": { "reflective-analysis@garyshi-skills": true } }
    ```
-3. Update later with `git pull` in this repo (+ `/plugin update` if needed).
+3. Update later: `git pull`, then `/plugin marketplace update garyshi-skills` and `/plugin update reflective-analysis@garyshi-skills`. (Bump the plugin `version` when you publish changes, so the cache refreshes instead of serving a stale copy.)
 
-Installing via the plugin registers the skill **and** the `reflective-leaf` agent together — no separate copy step. Note the agent is then namespaced **`reflective-analysis:reflective-leaf`** (the orchestrator picks whichever `reflective-leaf` type is available).
+Installing via the plugin registers the skill **and** the `reflective-leaf` agent together — no separate copy step. The agent is then namespaced **`reflective-analysis:reflective-leaf`** (the orchestrator uses whichever `reflective-leaf` type is available).
 
 ## Install (loose copy — alternative)
 
