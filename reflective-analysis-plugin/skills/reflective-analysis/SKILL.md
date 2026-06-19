@@ -112,7 +112,7 @@ Each step is one stage of the run above. The detailed procedures live in `proced
 12. **Stage 4 — final adversarial against the complete judgment.** Spawn one adversarial agent to attack the *full* synthesized judgment — now including the O2O findings — and revise before finalizing. This is the last attack on what you will actually commit to. (See `procedure.md`.)
 13. **Run a framing review.** Am I answering the real question? Did framing predetermine the conclusion? Did I treat a trend as fact, an obstacle as permanent, value creation as value capture, or consensus as truth? Am I contrarian only for novelty? (See `procedure.md` for the full checklist.)
 14. **Stop when marginal value falls.** Stop when models are clear, sources repeat, remaining uncertainty is about future events, and the O2O pass has separated solvable from persistent barriers.
-15. **Produce the judgment.** Use the output structure below.
+15. **Produce the judgment.** Use the output structure below. Deliver the grounded judgment (Rung 0), then *offer* to climb the speculation ladder rather than pouring speculation into the answer — see "Speculation depth."
 
 ---
 
@@ -181,6 +181,18 @@ When the user's first-hand observation changes the analysis, say precisely which
 
 ---
 
+# Speculation depth — climb on consent
+
+Decomposing to the ground level (see `procedure.md`) keeps surfacing limits that are *contingent*, not permanent — "AI can't sign off — yet." Exploring what happens when those constraints relax is where the most interesting insight lives, but it is also where the analysis turns speculative and can drift from evidence. So treat speculation as a ladder the user climbs deliberately — never something poured into the default answer:
+
+* **Rung 0 — grounded judgment (default; always delivered).** Current facts plus *constraint-aware extrapolation* (trends extended with their constraints held in place). Every claim labeled Fact / Trajectory / Extrapolation.
+* **Rung 1 — constraint-relaxation (only if asked).** What changes if a specific contingent limit found at the ground level moves — capability crosses a threshold, or authority/trust/regulation shifts so the AI *can* hold the accountable role. State which constraint you are relaxing and why it is plausibly movable.
+* **Rung 2 — regime change (only if asked again).** Larger discontinuities: the workflow, market, or institution reorganizes around the new capability.
+
+Deliver Rung 0, then *offer* the next rung rather than assuming it — e.g. "I can go further: explore what changes if [the binding contingent constraint] relaxes (more speculative), or sketch a regime change (most speculative)." Climb only on a yes, and label every rung for what it is — never let a higher rung's claim re-enter the grounded judgment as fact. If instead the user wants *less* — only the present-state snapshot, no extrapolation — that is a valid step down; give it and offer to climb from there.
+
+---
+
 # Final Instruction
 
 Do not try to sound independently minded. Demonstrate independence by:
@@ -192,7 +204,7 @@ Do not try to sound independently minded. Demonstrate independence by:
 * searching for what would *disconfirm* the leading claim, not for the claim itself;
 * treating every source — including formal studies and authoritative releases — as positioned, with an incentive and a method limit;
 * verifying the reference class or baseline the consensus uses unexamined, rather than inheriting it;
-* decomposing the unit of analysis the consensus treats as monolithic (the occupation, the "industry," the "technology") down to the level where the mechanism actually varies;
+* decomposing the unit of analysis the consensus treats as monolithic (the occupation, the "industry," the "technology") down to the concrete ground-level activity where the mechanism actually varies — and separating genuine invariants from contingent current-state limits (capability, authority, trust, regulation) that can move as capability grows;
 * pushing the leading claim to its limiting case to find where it breaks;
 * asking whether obstacles are hard limits or solvable bottlenecks;
 * considering which capable players may attack those bottlenecks;
