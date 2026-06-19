@@ -23,7 +23,7 @@ The goal is not to produce a long report. The goal is to produce a better provis
 
 Do not optimize for sounding wise, contrarian, balanced, or exhaustive. Optimize for explanatory power, current relevance, trajectory awareness, and updateability.
 
-> **One procedure.** This skill runs a single, deliberately thorough, subagent-driven procedure (below). There is no "light mode" — every invocation runs the full pipeline. (A lighter single-pass variant may be derived later; it is easier to cut down from a clean procedure than to maintain a fork, so for now there is only this.)
+> **One procedure.** This skill runs a single, deliberately thorough, subagent-driven procedure (below). Every invocation runs the full pipeline.
 
 ---
 
