@@ -34,15 +34,18 @@ The decomposition into lenses comes from the question and this framework, not fr
 * **Barrier:** the orchestrator compiles a single evidence brief and records the adversarial/baseline findings, *explicitly noting whether the baseline or frame was challenged*.
 * **Stage 2 (parallel):** trajectory + first-principles models, each seeded with the evidence brief **and** the adversarial findings — so their first pass is already informed, and they don't need to re-gather. (The trajectory agent knows *what trajectory to study* because the orchestrator specifies it in the prompt, derived from the question — e.g. "rate of change of capability and adoption in domains A, B, C." It does not need another agent's output.)
 * **Barrier:** the orchestrator synthesizes a provisional judgment, evaluating trend quality and the feedback environment.
+* **Conditional gate (triggered):** if that barrier showed the frame was overturned, re-derive the affected lens once before continuing (see below).
+* **Stage 3:** Obstacle-to-Opportunity, seeded with the extracted obstacles (see "Obstacle-to-Opportunity — orchestration" below).
+* **Barrier:** the orchestrator folds the O2O findings into the judgment.
+* **Stage 4:** one agent attacks the complete synthesized judgment — including the O2O findings — and the orchestrator revises before finalizing (see below).
 
-## Conditional re-pass (triggered, bounded, orchestrator-owned)
+## Conditional gate — re-derive on frame-overturn (triggered, bounded)
 
-Do **not** re-run a lens by default — that is the recursion failure mode. Re-run only when a lens's **inputs have materially changed**, cap it at one extra pass, and let the orchestrator own the decision. Two triggers:
+Do **not** re-run a lens by default — that is the recursion failure mode. Re-run only when a lens's **inputs have materially changed**, cap it at one extra pass, and let the orchestrator own the decision. The trigger: if the adversarial/baseline pass invalidated an assumption the Stage-2 models were built on (e.g. the baseline turned out to be bimodal, not "far ahead"), the models now stand on a stale frame — re-derive the affected lens **once** on the corrected frame before continuing to Stage 3. If the adversarial pass only added caveats, fold them into synthesis directly — no new agent. The distinction from runaway recursion: new-input requirement + one pass + explicit trigger + no leaf-spawning. Count it against the budget.
 
-1. **Frame overturned.** If the adversarial/baseline pass invalidated an assumption the Stage-2 models were built on (e.g. the baseline turned out to be bimodal, not "far ahead"), the models now stand on a stale frame. Re-derive the affected lens **once** on the corrected frame before synthesizing. (If the adversarial pass only added caveats, fold them into synthesis directly — no new agent.)
-2. **Final adversarial vs. the judgment.** The first adversarial pass attacks the prior; the synthesized judgment is what you will actually commit to, so it deserves the attack more. Run one adversarial agent against the synthesized judgment before finalizing.
+## Stage 4 — final adversarial against the complete judgment
 
-The distinction from runaway recursion: new-input requirement + one pass + explicit trigger + no leaf-spawning. Count these against the budget.
+The Stage-1 adversarial pass attacks the *prior*; Stage 4 attacks the *conclusion*. After the O2O findings are folded in, the synthesized judgment is what you will actually commit to, so it deserves the hardest attack — and it can only be attacked once O2O is done, since the obstacle/opportunity verdicts are part of it. Spawn one adversarial agent against the full judgment: where is it overconfident, resting on a positioned source, an un-decomposed unit, or an obstacle mis-rated as solvable? Revise before finalizing. One pass, counted against the budget.
 
 ## Don't contaminate the agents with one frame
 

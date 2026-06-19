@@ -62,15 +62,15 @@ Stage 1 (parallel; each agent seeded from the question + prior, does its own sea
 Stage 2 (parallel; both seeded from that brief + the adversarial findings):
    trajectory  +  first-principles / causal models
    ── barrier: orchestrator synthesizes a provisional judgment ──
-Conditional re-pass (only if triggered; orchestrator-owned):
-   frame overturned → re-derive the affected lens on the corrected frame
-   + a final adversarial pass against the synthesized judgment
+   [conditional gate: if the adversarial/baseline pass overturned the frame, re-derive the affected lens before continuing]
 Stage 3:
    Obstacle-to-Opportunity, seeded with the obstacles the orchestrator extracted
-   ── orchestrator produces the final judgment ──
+   ── barrier: orchestrator folds the O2O findings into the judgment ──
+Stage 4:
+   final adversarial against the complete synthesized judgment → orchestrator finalizes
 ```
 
-The decomposition into lenses comes from the **question and this framework, not from data** — so all Stage-1 prompts can be written before any evidence exists. Within a stage, agents are independent and run in parallel. Only Stage 2 and O2O depend on earlier output (which is why they are later stages — not because the lenses differ in kind).
+The decomposition into lenses comes from the **question and this framework, not from data** — so all Stage-1 prompts can be written before any evidence exists. Within a stage, agents are independent and run in parallel. Only Stages 2–4 depend on earlier output (which is why they are later stages — not because the lenses differ in kind).
 
 ## Budget — single source of truth for scope
 
@@ -82,9 +82,9 @@ Hard caps, per phase, counted by the orchestrator across the whole run. Nesting 
 | Stage 1 — adversarial / baseline-attack (independent search) | ≤ 2 | Opus |
 | Stage 2 — trajectory | ≤ 1 | Sonnet |
 | Stage 2 — first-principles / causal models | ≤ 2 | Opus |
-| Conditional re-pass (triggered only) | ≤ 1 | Opus |
-| Final adversarial vs. the synthesized judgment | ≤ 1 | Opus |
+| Conditional gate — re-derive on frame-overturn (triggered) | ≤ 1 | Opus |
 | Stage 3 — Obstacle-to-Opportunity | ≤ 2 | Opus |
+| Stage 4 — final adversarial vs. the complete judgment | ≤ 1 | Opus |
 | (optional) per-finding adversarial verification | ≤ 1 / finding, ≤ 5 total | Sonnet |
 | **Hard total (all phases, nesting = 0)** | **≤ 12** | — |
 
@@ -104,12 +104,13 @@ Each step is one stage of the run above. The detailed procedures live in `proced
 6. **Barrier — compile.** Build the evidence brief; record the adversarial/baseline findings; note explicitly whether the baseline or frame was challenged.
 7. **Stage 2 — trajectory + first-principles (parallel).** Seed both with the evidence brief and the adversarial findings. (See `procedure.md`: trajectory layers, trend quality, extrapolation, model archetypes.)
 8. **Barrier — synthesize.** Build the provisional judgment; evaluate trend quality and the feedback environment. (See `procedure.md`.)
-9. **Conditional re-pass (triggered only).** If the adversarial/baseline pass overturned the frame the models assumed, or the models conflict and the conflict is unresolved, re-derive the affected lens *once* on the corrected frame, and run a final adversarial pass against the synthesized judgment. Otherwise fold the adversarial caveats into synthesis directly — no new agents. (See `procedure.md`.)
+9. **Conditional gate — re-derive on frame-overturn (triggered only).** If the adversarial/baseline pass overturned the frame the Stage-2 models assumed, or the models conflict and the conflict is unresolved, re-derive the affected lens *once* on the corrected frame before continuing. Otherwise fold the adversarial caveats into synthesis directly — no new agents. (See `procedure.md`.)
 10. **Extract obstacles.** From the synthesis, name the concrete, specific obstacles to the leading thesis. These are the O2O agent's input.
-11. **Stage 3 — Obstacle-to-Opportunity.** Seeded with the obstacles; single agent or fan-out per the coupling test. (See `procedure.md` for the coupling test and integration; `subagent-prompts.md` for the template.)
-12. **Run a framing review.** Am I answering the real question? Did framing predetermine the conclusion? Did I treat a trend as fact, an obstacle as permanent, value creation as value capture, or consensus as truth? Am I contrarian only for novelty? (See `procedure.md` for the full checklist.)
-13. **Stop when marginal value falls.** Stop when models are clear, sources repeat, remaining uncertainty is about future events, and the O2O pass has separated solvable from persistent barriers.
-14. **Produce the judgment.** Use the output structure below.
+11. **Stage 3 — Obstacle-to-Opportunity.** Seeded with the obstacles; single agent or fan-out per the coupling test. Fold its findings into the judgment. (See `procedure.md` for the coupling test and integration; `subagent-prompts.md` for the template.)
+12. **Stage 4 — final adversarial against the complete judgment.** Spawn one adversarial agent to attack the *full* synthesized judgment — now including the O2O findings — and revise before finalizing. This is the last attack on what you will actually commit to. (See `procedure.md`.)
+13. **Run a framing review.** Am I answering the real question? Did framing predetermine the conclusion? Did I treat a trend as fact, an obstacle as permanent, value creation as value capture, or consensus as truth? Am I contrarian only for novelty? (See `procedure.md` for the full checklist.)
+14. **Stop when marginal value falls.** Stop when models are clear, sources repeat, remaining uncertainty is about future events, and the O2O pass has separated solvable from persistent barriers.
+15. **Produce the judgment.** Use the output structure below.
 
 ---
 

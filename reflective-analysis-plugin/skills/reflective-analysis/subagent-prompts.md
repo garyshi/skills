@@ -130,22 +130,20 @@ deserves most weight and why"; then "Recommended further lenses".
 
 ---
 
-## 5. Conditional re-pass / Final adversarial — model: Opus
+## 5. Re-derivation on frame-overturn (conditional gate) — model: Opus
 
-Used only when a trigger fires (frame overturned, or to attack the synthesized judgment).
+Runs only when the frame is overturned (see `procedure.md` → "Conditional gate"). Re-derives one lens on the corrected frame before Stage 3.
 
 ```
-You are running a {re-derivation on a corrected frame | final adversarial pass}.
-{If re-derivation:} The frame changed: {old frame → corrected frame, with the
-evidence that overturned it}. Re-derive {the affected lens} on the corrected frame.
-{If final adversarial:} Here is the synthesized provisional judgment we are about
-to commit to: {judgment}. Try hard to refute it: where is it wrong, overconfident,
-or resting on a positioned source or an un-decomposed unit?
+You are re-deriving the {affected lens, e.g. first-principles models} after the
+frame it assumed was overturned. The frame changed: {old frame → corrected frame,
+with the evidence that overturned it}. Redo the lens from scratch on the corrected
+frame; do not defend the old version. Prior output to supersede: {prior lens output}.
 
 (Leaf discipline — labeling, source-tagging, disconfirming search, "Recommended further lenses" — is supplied by the `reflective-leaf` agent definition; no need to repeat it here.)
 
-Output: {the re-derived lens in its normal format | a refutation memo: strongest
-attacks, which survive, what the judgment should change}.
+Output: the re-derived lens in its normal format, plus a one-line note on what
+changed versus the superseded version.
 ```
 
 ---
@@ -200,7 +198,26 @@ these answers; the orchestrator assembles the combined table and ranks across ob
 
 ---
 
-## 7. Per-finding verifier — model: Sonnet
+## 7. Final adversarial vs. the complete judgment (Stage 4) — model: Opus
+
+Runs after O2O (Stage 3). Attacks the *full* synthesized judgment, including the O2O verdicts — the last check before committing. One agent.
+
+```
+You are the final adversarial pass. Here is the complete synthesized judgment we
+are about to commit to, including the obstacle-to-opportunity verdicts: {judgment}.
+Try hard to refute it. Where is it overconfident, resting on a positioned source,
+built on an un-decomposed unit of analysis, or rating an obstacle "solvable" on
+wishful grounds? Attack the conclusion, not the prior.
+
+(Leaf discipline — labeling, source-tagging, disconfirming search, "Recommended further lenses" — is supplied by the `reflective-leaf` agent definition; no need to repeat it here.)
+
+Output: a refutation memo — strongest attacks; which survive scrutiny; exactly what
+the judgment should change (claim, confidence, or an obstacle's hard/solvable rating).
+```
+
+---
+
+## 8. Per-finding verifier — model: Sonnet
 
 Orchestrated stage only (≤ 1/finding, ≤ 5 total). One independent skeptic per specific finding.
 
