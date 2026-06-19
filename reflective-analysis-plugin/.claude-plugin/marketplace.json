@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "reflective-analysis-local",
+  "description": "Local marketplace hosting the reflective-analysis skill plugin.",
+  "owner": { "name": "Gary Shi" },
+  "plugins": [
+    {
+      "name": "reflective-analysis",
+      "description": "Orchestrated, staged, leaf-enforced reflective analysis for ambiguous, fast-moving, or strategically important questions.",
+      "version": "0.1.0",
+      "author": { "name": "Gary Shi" },
+      "source": ".",
+      "category": "productivity"
+    }
+  ]
+}

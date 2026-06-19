@@ -1,0 +1,9 @@
+{
+  "name": "reflective-analysis",
+  "version": "0.1.0",
+  "description": "Orchestrated, staged, leaf-enforced reflective analysis for ambiguous, fast-moving, or strategically important questions. The skill spawns leaf subagents (reflective-leaf) that cannot recurse or re-enter the skill.",
+  "author": { "name": "Gary Shi" },
+  "license": "UNLICENSED",
+  "private": true,
+  "skills": ["./skills/reflective-analysis"]
+}

@@ -14,7 +14,7 @@ Stay within the per-phase budget in `SKILL.md` (hard total ≤ 12 agents, nestin
 
 Exactly one orchestrator: the main session. Subagents are leaves. A subagent **must not** invoke `reflective-analysis` (or `deep-research`, or any analysis skill) and **must not** spawn its own subagents.
 
-**This is enforced mechanically, not by prompt.** Spawn every leaf as the `reflective-leaf` agent type (`agents/reflective-leaf.md`), which has no `Agent` and no `Skill` tool — so nesting and skill re-entry are impossible regardless of what any prompt says. Do not rely on the instruction alone: a prompt-only version of this rule is exactly the advisory constraint that failed before (the old "3–5 subagents" budget was also just a prompt, and a run blew through it to 259 agents, 5 levels deep). Fallback if `reflective-leaf` is unavailable: the built-in `Explore` type (also lacks `Agent`; weaker, since it keeps `Skill`). Never use `general-purpose` for a leaf.
+**This is enforced mechanically, not by prompt.** Spawn every leaf as the `reflective-leaf` agent type (see `subagent-prompts.md` for the exact `subagent_type` string, which differs between plugin and loose installs), which has no `Agent` and no `Skill` tool — so nesting and skill re-entry are impossible regardless of what any prompt says. Do not rely on the instruction alone: a prompt-only version of this rule is exactly the advisory constraint that failed before (the old "3–5 subagents" budget was also just a prompt, and a run blew through it to 259 agents, 5 levels deep). Fallback if `reflective-leaf` is unavailable: the built-in `Explore` type (also lacks `Agent`; weaker, since it keeps `Skill`). Never use `general-purpose` for a leaf.
 
 Why — nested spawning never improves quality, and usually lowers it:
 
