@@ -128,11 +128,12 @@ each: central mechanism; key assumptions; evidence it explains well; evidence it
 fails to explain; leading indicators; failure conditions. Decompose any unit the
 consensus treats as monolithic down to the level where the mechanism actually
 varies — push to the concrete ground-level activity (e.g. the actual steps of how
-a lawyer reviews a contract), which usually shows AI already does a large chunk of
-the sub-activities. For each remaining limit, classify it as a genuine invariant or
-a contingent current-state constraint (capability, trust, authority, liability,
-regulation) that could move as capability grows; flag the contingent (movable) ones
-for the O2O pass. Consider value creation vs. value capture explicitly.
+a lawyer reviews a contract), which usually shows the work is a bundle of
+sub-activities of varying difficulty, not one monolithic task. For each remaining
+limit, classify it as a genuine invariant or a contingent current-state constraint
+(capability, tooling, cost, trust, authority, liability, regulation) that could
+change as conditions shift; flag the contingent (movable) ones for the O2O pass.
+Consider value creation vs. value capture explicitly.
 
 (Leaf discipline — labeling, source-tagging, disconfirming search, "Recommended further lenses" — is supplied by the `reflective-leaf` agent definition; no need to repeat it here.)
 

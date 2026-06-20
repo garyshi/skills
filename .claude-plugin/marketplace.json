@@ -7,7 +7,7 @@
     {
       "name": "reflective-analysis",
       "description": "Orchestrated, staged, leaf-enforced reflective analysis for ambiguous, fast-moving, or strategically important questions.",
-      "version": "0.3.1",
+      "version": "0.3.2",
       "author": { "name": "Gary Shi" },
       "source": "./reflective-analysis-plugin",
       "category": "productivity"

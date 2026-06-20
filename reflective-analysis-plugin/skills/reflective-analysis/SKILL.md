@@ -112,7 +112,7 @@ Each step is one stage of the run above. The detailed procedures live in `proced
 12. **Stage 4 — final adversarial against the complete judgment.** Spawn one adversarial agent to attack the *full* synthesized judgment — now including the O2O findings — and revise before finalizing. This is the last attack on what you will actually commit to. (See `procedure.md`.)
 13. **Run a framing review.** Am I answering the real question? Did framing predetermine the conclusion? Did I treat a trend as fact, an obstacle as permanent, value creation as value capture, or consensus as truth? Am I contrarian only for novelty? (See `procedure.md` for the full checklist.)
 14. **Stop when marginal value falls.** Stop when models are clear, sources repeat, remaining uncertainty is about future events, and the O2O pass has separated solvable from persistent barriers.
-15. **Produce the judgment.** Use the output structure below. Deliver the present-state judgment (Rung 0 — facts + observed trajectory, no forward projection), then *offer* to climb the speculation ladder rather than pouring speculation into the answer — see "Speculation depth."
+15. **Produce the judgment.** Use the output structure below — the default judgment is trajectory-aware (it includes disciplined extrapolation). Then *offer* the deeper ground-level feasibility pass rather than running it by default — see "The deeper pass."
 
 ---
 
@@ -124,7 +124,7 @@ Use this structure when appropriate.
 * **Why** — the central causal mechanism.
 * **What Changed From the Initial Prior** — the assumption, evidence, trajectory, baseline correction, or obstacle analysis responsible for the update.
 * **Divergence from Consensus** — state plainly where this analysis departs from the general consensus and *why*, and where it does not. Name the specific move that produced the divergence (a verified baseline, a disconfirming search, a decomposed unit of analysis, a discounted source). **If it diverges nowhere, treat that as a warning that no independent analysis has happened — not as confirmation.** Go back and check the framing, the baseline, and whether you only searched the topic.
-* **Fact / Observed Trajectory** — the present-state judgment (Rung 0): current facts and the backward-looking trajectory, kept separate, plus key constraints. **Forward extrapolation is held for Rung 1** (offered, not folded into the default); the deeper rungs likewise stay labeled and on-request (see "Speculation depth").
+* **Fact / Trajectory / Extrapolation** — kept separate, plus key constraints. Forward extrapolation is part of the default judgment (clearly labeled, with its assumptions); the optional deeper ground-level pass stays on-request (see "The deeper pass").
 * **Causal Models Considered** — compare the strongest models; explain why the chosen one deserves more weight.
 * **Obstacle-to-Opportunity Findings** — which obstacles are hard constraints, which are solvable bottlenecks, who may solve them, what changes if solved, and what evidence to watch. State whether this pass changed the conclusion.
 * **Confidence** — a calibrated qualitative or numerical range.
@@ -181,15 +181,13 @@ When the user's first-hand observation changes the analysis, say precisely which
 
 ---
 
-# Speculation depth — climb on consent
+# The deeper pass — ground-level feasibility (offer, don't run by default)
 
-Forward-looking analysis is where the most interesting insight lives and also where it drifts from evidence — so treat it as a ladder the user climbs deliberately, never something poured into the default answer. Deliver Rung 0; then *offer* the next rung; climb only on a yes; label every rung for what it is, and never let a higher rung's claim re-enter a lower rung as fact.
+The default judgment is **trajectory-aware**: it includes disciplined forward extrapolation (conservative / base / aggressive, each labeled with its assumptions and what would invalidate it), and the adversarial and O2O passes run on that full forward-looking picture. **Do not strip extrapolation out of the default** — for a fast-moving subject a present-only snapshot is the wrong answer, and the adversarial/O2O analysis is entangled with the trajectory (pull extrapolation out and you would have to re-run them). Disciplined extrapolation is evidence-tethered; it is not the ungrounded drift worth gating.
 
-* **Rung 0 — present (default; always delivered).** What is true *now*: current facts plus the **observed** (backward-looking) trajectory — how we got here. **No forward projection.** Every claim is Fact or observed Trajectory.
-* **Rung 1 — extrapolation (only if asked).** Extend the current trends *forward*: capability improvement **and** scale/capacity (compute, deployment, adoption capacity). What follows if they continue — conservative / base / aggressive, each with the assumptions it rides on and what would invalidate it.
-* **Rung 2 — dissolve the residual hard challenges (only if asked again).** Take what is *still* in the "can't" bucket after Rungs 0–1, decompose each to ground-level activities (see `procedure.md`), and assess **not** "what current AI can do" (that is Rung 0) but **what could be solved with focused work on a near-term horizon** — roughly what one motivated team could build in ~3–6 months at today's pace of progress. Not current status, not sci-fi. Report it as a *sense of the portion* ("most of this looks a few months of focused engineering away; the genuinely hard residue is X"), **not** a precise count — usually you can only judge how big a slice, not tally items.
+There is one genuinely deeper, more speculative move to **hold back and offer** rather than run by default: the **ground-level dissolution of the residual hard challenges.** Take whatever the judgment still puts in the "can't / blocked" bucket, decompose each to ground-level activities (see `procedure.md`), and gauge how much is actually addressable with focused, deliberate **near-term** effort — short of a breakthrough or regime change — versus a small genuinely-hard core. Report a *sense of the portion* ("most of this looks within reach of focused near-term work; the hard residue is X"), **not** a precise count — usually you can only judge how big a slice, not tally items. *(Concrete handle when the subject is a fast-moving technology: what a motivated team could plausibly achieve in the near term at the current pace — not the current state, not sci-fi.)*
 
-Offer the next rung explicitly — e.g. "I can go further: extrapolate capability + scale/capacity (Rung 1), then test how much of what's left is a few months of focused work away (Rung 2)." If the user wants only the present, Rung 0 alone is a complete answer.
+Offer it after the default judgment — e.g. "I can go one level deeper: break the parts that still look blocked down to the ground level and gauge how much is actually within reach of focused effort." Run it only on a yes, keep it clearly labeled as the more speculative pass, and don't let its findings silently rewrite the default judgment. (Conversely, if the user wants *less* — a present-only snapshot with no extrapolation — that is a valid step down; give it.)
 
 ---
 
@@ -204,7 +202,7 @@ Do not try to sound independently minded. Demonstrate independence by:
 * searching for what would *disconfirm* the leading claim, not for the claim itself;
 * treating every source — including formal studies and authoritative releases — as positioned, with an incentive and a method limit;
 * verifying the reference class or baseline the consensus uses unexamined, rather than inheriting it;
-* decomposing the unit of analysis the consensus treats as monolithic (the occupation, the "industry," the "technology") down to the concrete ground-level activity where the mechanism actually varies — and separating genuine invariants from contingent current-state limits (capability, authority, trust, regulation) that can move as capability grows;
+* decomposing the unit of analysis the consensus treats as monolithic (the occupation, the "industry," the "technology") down to the concrete ground-level activity where the mechanism actually varies — and separating genuine invariants from contingent current-state limits (capability, tooling, cost, authority, trust, regulation) that can change as conditions shift;
 * pushing the leading claim to its limiting case to find where it breaks;
 * asking whether obstacles are hard limits or solvable bottlenecks;
 * considering which capable players may attack those bottlenecks;
