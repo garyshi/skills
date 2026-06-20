@@ -112,7 +112,7 @@ Each step is one stage of the run above. The detailed procedures live in `proced
 12. **Stage 4 — final adversarial against the complete judgment.** Spawn one adversarial agent to attack the *full* synthesized judgment — now including the O2O findings — and revise before finalizing. This is the last attack on what you will actually commit to. (See `procedure.md`.)
 13. **Run a framing review.** Am I answering the real question? Did framing predetermine the conclusion? Did I treat a trend as fact, an obstacle as permanent, value creation as value capture, or consensus as truth? Am I contrarian only for novelty? (See `procedure.md` for the full checklist.)
 14. **Stop when marginal value falls.** Stop when models are clear, sources repeat, remaining uncertainty is about future events, and the O2O pass has separated solvable from persistent barriers.
-15. **Produce the judgment.** Use the output structure below. Deliver the grounded judgment (Rung 0), then *offer* to climb the speculation ladder rather than pouring speculation into the answer — see "Speculation depth."
+15. **Produce the judgment.** Use the output structure below. Deliver the present-state judgment (Rung 0 — facts + observed trajectory, no forward projection), then *offer* to climb the speculation ladder rather than pouring speculation into the answer — see "Speculation depth."
 
 ---
 
@@ -124,7 +124,7 @@ Use this structure when appropriate.
 * **Why** — the central causal mechanism.
 * **What Changed From the Initial Prior** — the assumption, evidence, trajectory, baseline correction, or obstacle analysis responsible for the update.
 * **Divergence from Consensus** — state plainly where this analysis departs from the general consensus and *why*, and where it does not. Name the specific move that produced the divergence (a verified baseline, a disconfirming search, a decomposed unit of analysis, a discounted source). **If it diverges nowhere, treat that as a warning that no independent analysis has happened — not as confirmation.** Go back and check the framing, the baseline, and whether you only searched the topic.
-* **Fact / Trajectory / Extrapolation** — kept separate, plus key constraints.
+* **Fact / Observed Trajectory** — the present-state judgment (Rung 0): current facts and the backward-looking trajectory, kept separate, plus key constraints. **Forward extrapolation is held for Rung 1** (offered, not folded into the default); the deeper rungs likewise stay labeled and on-request (see "Speculation depth").
 * **Causal Models Considered** — compare the strongest models; explain why the chosen one deserves more weight.
 * **Obstacle-to-Opportunity Findings** — which obstacles are hard constraints, which are solvable bottlenecks, who may solve them, what changes if solved, and what evidence to watch. State whether this pass changed the conclusion.
 * **Confidence** — a calibrated qualitative or numerical range.
@@ -183,13 +183,13 @@ When the user's first-hand observation changes the analysis, say precisely which
 
 # Speculation depth — climb on consent
 
-Decomposing to the ground level (see `procedure.md`) keeps surfacing limits that are *contingent*, not permanent — "AI can't sign off — yet." Exploring what happens when those constraints relax is where the most interesting insight lives, but it is also where the analysis turns speculative and can drift from evidence. So treat speculation as a ladder the user climbs deliberately — never something poured into the default answer:
+Forward-looking analysis is where the most interesting insight lives and also where it drifts from evidence — so treat it as a ladder the user climbs deliberately, never something poured into the default answer. Deliver Rung 0; then *offer* the next rung; climb only on a yes; label every rung for what it is, and never let a higher rung's claim re-enter a lower rung as fact.
 
-* **Rung 0 — grounded judgment (default; always delivered).** Current facts plus *constraint-aware extrapolation* (trends extended with their constraints held in place). Every claim labeled Fact / Trajectory / Extrapolation.
-* **Rung 1 — constraint-relaxation (only if asked).** What changes if a specific contingent limit found at the ground level moves — capability crosses a threshold, or authority/trust/regulation shifts so the AI *can* hold the accountable role. State which constraint you are relaxing and why it is plausibly movable.
-* **Rung 2 — regime change (only if asked again).** Larger discontinuities: the workflow, market, or institution reorganizes around the new capability.
+* **Rung 0 — present (default; always delivered).** What is true *now*: current facts plus the **observed** (backward-looking) trajectory — how we got here. **No forward projection.** Every claim is Fact or observed Trajectory.
+* **Rung 1 — extrapolation (only if asked).** Extend the current trends *forward*: capability improvement **and** scale/capacity (compute, deployment, adoption capacity). What follows if they continue — conservative / base / aggressive, each with the assumptions it rides on and what would invalidate it.
+* **Rung 2 — dissolve the residual hard challenges (only if asked again).** Take what is *still* in the "can't" bucket after Rungs 0–1, decompose each to ground-level activities (see `procedure.md`), and assess **not** "what current AI can do" (that is Rung 0) but **what could be solved with focused work on a near-term horizon** — roughly what one motivated team could build in ~3–6 months at today's pace of progress. Not current status, not sci-fi. Report it as a *sense of the portion* ("most of this looks a few months of focused engineering away; the genuinely hard residue is X"), **not** a precise count — usually you can only judge how big a slice, not tally items.
 
-Deliver Rung 0, then *offer* the next rung rather than assuming it — e.g. "I can go further: explore what changes if [the binding contingent constraint] relaxes (more speculative), or sketch a regime change (most speculative)." Climb only on a yes, and label every rung for what it is — never let a higher rung's claim re-enter the grounded judgment as fact. If instead the user wants *less* — only the present-state snapshot, no extrapolation — that is a valid step down; give it and offer to climb from there.
+Offer the next rung explicitly — e.g. "I can go further: extrapolate capability + scale/capacity (Rung 1), then test how much of what's left is a few months of focused work away (Rung 2)." If the user wants only the present, Rung 0 alone is a complete answer.
 
 ---
 
