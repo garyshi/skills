@@ -11,6 +11,14 @@
       "author": { "name": "Gary Shi" },
       "source": "./reflective-analysis-plugin",
       "category": "productivity"
+    },
+    {
+      "name": "rebase",
+      "description": "Rebase the current Git branch onto a target branch, with upfront conflict analysis so an AI model can resolve conflicts by intent rather than guesswork.",
+      "version": "0.1.0",
+      "author": { "name": "Gary Shi" },
+      "source": "./rebase-plugin",
+      "category": "productivity"
     }
   ]
 }

@@ -17,6 +17,12 @@ reflective-analysis-plugin/              # a self-contained Claude Code plugin
       subagent-prompts.md                # one prompt template per agent type (pasted when spawning)
   agents/
     reflective-leaf.md                   # restricted leaf agent type (no Agent/Skill tool) — auto-registered
+rebase-plugin/                           # a self-contained Claude Code plugin
+  .claude-plugin/
+    plugin.json                          # the plugin manifest
+  skills/
+    rebase/
+      SKILL.md                           # rebase onto a target branch with upfront conflict analysis
 ```
 
 ## Install (plugin — recommended)
@@ -32,11 +38,12 @@ Registering the marketplace is one-time and machine-wide; **enabling** a plugin 
    /plugin marketplace add <path-to-your-clone-of-this-repo>
    ```
    Either way it registers under the name in `marketplace.json` — **`garyshi-skills`**.
-2. Enable the plugin **per project** — via `/plugin` (install `reflective-analysis@garyshi-skills` at project scope), or add to that project's `.claude/settings.json`:
+2. Enable a plugin **per project** — via `/plugin` (e.g. install `rebase@garyshi-skills` at project scope), or add to that project's `.claude/settings.json`:
    ```json
-   { "enabledPlugins": { "reflective-analysis@garyshi-skills": true } }
+   { "enabledPlugins": { "rebase@garyshi-skills": true } }
    ```
-3. Update later: `git pull`, then `/plugin marketplace update garyshi-skills` and `/plugin update reflective-analysis@garyshi-skills`. (Bump the plugin `version` when you publish changes, so the cache refreshes instead of serving a stale copy.)
+   Available plugins: `reflective-analysis`, `rebase`.
+3. Update later: `git pull`, then `/plugin marketplace update garyshi-skills` and `/plugin update <plugin>@garyshi-skills`. (Bump the plugin `version` when you publish changes, so the cache refreshes instead of serving a stale copy.)
 
 Installing via the plugin registers the skill **and** the `reflective-leaf` agent together — no separate copy step. The agent is then namespaced **`reflective-analysis:reflective-leaf`** (the orchestrator uses whichever `reflective-leaf` type is available).
 
