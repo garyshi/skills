@@ -12,6 +12,16 @@ allowed-tools:
   - Bash(git rebase:*)
 ---
 
+## Why this skill exists
+
+A rebase replays your commits onto another branch. When the two branches changed overlapping code, conflicts are inevitable — and Git's automatic resolution is fundamentally limited: it matches text, not meaning. It sees that two patches touched the same lines, but it has no idea *what* either change was trying to do, so it either bails out with conflict markers or, worse, silently produces a merge that compiles but is wrong.
+
+This is exactly the kind of problem modern AI models are good at. A model can read both versions of a file, understand the intent behind each side's changes, and reconstruct a resolution that honors both — something a line-diff algorithm can never do. The catch is that the model has to actually *see* both changes. Dropped into a conflicted file mid-rebase, it's working blind, staring at the same `<<<<<<<` markers Git left behind with little sense of where each side came from.
+
+So the approach of this skill is simple: **investigate before rebasing.** Before touching history, map out which files diverged on each side and read what each branch actually changed and why. Walking into the rebase with that understanding already in hand turns conflict resolution from guesswork into a deliberate, informed merge of two known intents.
+
+---
+
 Rebase the current branch onto **$ARGUMENTS** (default: `origin/main`).
 
 > **Branch name resolution:**
