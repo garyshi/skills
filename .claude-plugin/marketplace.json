@@ -19,6 +19,14 @@
       "author": { "name": "Gary Shi" },
       "source": "./rebase-plugin",
       "category": "productivity"
+    },
+    {
+      "name": "render-claude-session-plugin",
+      "description": "Save a readable transcript of the current Claude Code session to a Markdown or HTML file.",
+      "version": "0.1.0",
+      "author": { "name": "Gary Shi" },
+      "source": "./render-claude-session-plugin",
+      "category": "productivity"
     }
   ]
 }
