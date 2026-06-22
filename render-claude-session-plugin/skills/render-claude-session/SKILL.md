@@ -5,6 +5,15 @@ description: Save a readable transcript of the current Claude Code session to a 
 
 # Render Session Log
 
+## Instructions
+
+When this skill is invoked:
+
+1. If `ARGUMENTS` is provided, use it as the output name.
+2. If `ARGUMENTS` is empty or absent, use `session-log` as the output name.
+3. Run the script immediately — do not ask the user for a filename.
+4. After the script exits, report the written path back to the user.
+
 Renders the **current** Claude Code session transcript into a clean Markdown (default)
 or HTML file with a table of contents, collapsible thinking/tool sections, and a
 token-usage + estimated-cost summary.
