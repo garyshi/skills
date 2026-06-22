@@ -23,7 +23,7 @@
     {
       "name": "render-claude-session-plugin",
       "description": "Save a readable transcript of the current Claude Code session to a Markdown or HTML file.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": { "name": "Gary Shi" },
       "source": "./render-claude-session-plugin",
       "category": "productivity"

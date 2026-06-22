@@ -19,10 +19,10 @@ working directory.
 
 ## Usage
 
-Run the wrapper. It resolves the current session and the output path automatically:
+Run the wrapper using the base directory path shown above (not as a shell variable — paste the literal path):
 
 ```bash
-python "$SKILL_BASE_DIR/scripts/save_session.py" [NAME] [--html] [options]
+python <SKILL_BASE_DIR>/scripts/save_session.py [NAME] [--html] [options]
 ```
 
 ### Output path rules
@@ -41,16 +41,16 @@ The extension is appended only when the name lacks one. `--html` switches the fo
 
 ```bash
 # Markdown to ./<session-title>.md
-python "$SKILL_BASE_DIR/scripts/save_session.py"
+python <SKILL_BASE_DIR>/scripts/save_session.py
 
 # Markdown to ./session-notes.md
-python "$SKILL_BASE_DIR/scripts/save_session.py" session-notes
+python <SKILL_BASE_DIR>/scripts/save_session.py session-notes
 
 # HTML to ./session.html
-python "$SKILL_BASE_DIR/scripts/save_session.py" session --html
+python <SKILL_BASE_DIR>/scripts/save_session.py session --html
 
 # Explicit path is respected
-python "$SKILL_BASE_DIR/scripts/save_session.py" /tmp/export.md
+python <SKILL_BASE_DIR>/scripts/save_session.py /tmp/export.md
 ```
 
 ### Options
