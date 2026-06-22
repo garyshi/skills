@@ -22,7 +22,7 @@ working directory.
 Run the wrapper. It resolves the current session and the output path automatically:
 
 ```bash
-python ~/.claude/skills/render-claude-session/scripts/save_session.py [NAME] [--html] [options]
+python ~/.claude/plugins/render-claude-session/skills/render-claude-session/scripts/save_session.py [NAME] [--html] [options]
 ```
 
 ### Output path rules
@@ -41,16 +41,16 @@ The extension is appended only when the name lacks one. `--html` switches the fo
 
 ```bash
 # Markdown to ./<session-title>.md
-python ~/.claude/skills/render-claude-session/scripts/save_session.py
+python ~/.claude/plugins/render-claude-session/skills/render-claude-session/scripts/save_session.py
 
 # Markdown to ./session-notes.md
-python ~/.claude/skills/render-claude-session/scripts/save_session.py session-notes
+python ~/.claude/plugins/render-claude-session/skills/render-claude-session/scripts/save_session.py session-notes
 
 # HTML to ./session.html
-python ~/.claude/skills/render-claude-session/scripts/save_session.py session --html
+python ~/.claude/plugins/render-claude-session/skills/render-claude-session/scripts/save_session.py session --html
 
 # Explicit path is respected
-python ~/.claude/skills/render-claude-session/scripts/save_session.py /tmp/export.md
+python ~/.claude/plugins/render-claude-session/skills/render-claude-session/scripts/save_session.py /tmp/export.md
 ```
 
 ### Options

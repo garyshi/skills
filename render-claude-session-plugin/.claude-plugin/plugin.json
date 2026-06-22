@@ -1,0 +1,9 @@
+{
+  "name": "render-claude-session",
+  "version": "0.1.0",
+  "description": "Save a readable transcript of the current Claude Code session to a Markdown or HTML file.",
+  "author": { "name": "Gary Shi" },
+  "license": "UNLICENSED",
+  "private": true,
+  "skills": ["./skills/render-claude-session"]
+}
