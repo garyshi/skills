@@ -1,6 +1,9 @@
 ---
 name: reflective-analysis
 description: Analyze ambiguous, fast-moving, or strategically important questions by examining framing, verifying the baseline, updating stale assumptions, analyzing trajectory and rate of change, constructing competing causal models, testing them against discriminating and disconfirming evidence, and producing a provisional, falsifiable judgment. Use when a conventional answer may be incomplete, outdated, overly static, trapped in consensus, or dependent on hidden assumptions.
+metadata:
+  version: "0.3.3"
+  short-description: "Orchestrated, staged, leaf-enforced reflective analysis for ambiguous, fast-moving, or strategically important questions."
 ---
 
 # Reflective Analysis
@@ -53,7 +56,7 @@ Never silently turn one category into another. Especially avoid treating extrapo
 
 One **orchestrator** — the main session — runs the whole analysis. It decomposes the question, spawns subagents to investigate independent lenses, and is the *only* place where synthesis happens.
 
-**Subagents are leaves.** A subagent investigates one lens and returns findings. It **must not** invoke this skill (or any analysis skill) and **must not** spawn its own subagents. If it finds that a sub-question deserves deeper work, it says so in its output as a *recommendation*; the orchestrator decides whether to spawn it. Nested spawning produces duplication, lossy multi-level summarization, and fake convergence — never higher quality. This is enforced **mechanically**: spawn every leaf as the `reflective-leaf` agent type, which lacks the `Agent` and `Skill` tools, so nesting is impossible by construction (not left to prompt compliance). See `procedure.md` → "The leaf rule" and `subagent-prompts.md`.
+**Subagents are leaves.** A subagent investigates one lens and returns findings. It **must not** invoke this skill (or any analysis skill) and **must not** spawn its own subagents. If it finds that a sub-question deserves deeper work, it says so in its output as a *recommendation*; the orchestrator decides whether to spawn it. Nested spawning produces duplication, lossy multi-level summarization, and fake convergence — never higher quality. This is enforced **mechanically**: spawn every leaf as the `reflective-leaf` agent type, which lacks the `Agent` and `Skill` tools, so nesting is impossible by construction (not left to prompt compliance). On other agents (Codex, Cursor, Grok, Antigravity), follow `subagent-prompts.md` → "On agents other than Claude Code". See `procedure.md` → "The leaf rule" and `subagent-prompts.md`.
 
 The run is **staged**, and the orchestrator synthesizes at each barrier:
 
@@ -90,7 +93,7 @@ Hard caps, per phase, counted by the orchestrator across the whole run. Nesting 
 | (optional) per-finding adversarial verification | ≤ 1 / finding, ≤ 5 total | Sonnet |
 | **Hard total (all phases, nesting = 0)** | **≤ 12** | — |
 
-Per-phase caps prevent gathering from exhausting the budget and starving the later analysis and O2O phases. A single gathering agent runs many searches/fetches in its own loop — split gatherers only to cover *different territory* (e.g. by sub-domain, or one dedicated to the baseline), never to add source volume. Assign the cheap tier to gathering and verification, and Opus to the reasoning, adversarial, and synthesis lenses where judgment is the product. Pass the tier explicitly when spawning (the Agent `model` option); otherwise a subagent inherits the orchestrator's model — which is how an info-gathering agent ends up needlessly on Opus.
+Per-phase caps prevent gathering from exhausting the budget and starving the later analysis and O2O phases. A single gathering agent runs many searches/fetches in its own loop — split gatherers only to cover *different territory* (e.g. by sub-domain, or one dedicated to the baseline), never to add source volume. Assign the cheap tier to gathering and verification, and Opus to the reasoning, adversarial, and synthesis lenses where judgment is the product. Pass the tier explicitly when spawning (the Agent `model` option, or the platform's equivalent); otherwise a subagent inherits the orchestrator's model — which is how an info-gathering agent ends up needlessly on Opus.
 
 ---
 
