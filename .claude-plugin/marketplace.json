@@ -1,31 +1,51 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "garyshi-skills",
-  "description": "Gary Shi's personal Claude Code skills.",
-  "owner": { "name": "Gary Shi" },
+  "description": "Gary Shi's personal agent skills, packaged as Claude Code plugins.",
+  "owner": {
+    "name": "Gary Shi"
+  },
   "plugins": [
-    {
-      "name": "reflective-analysis",
-      "description": "Orchestrated, staged, leaf-enforced reflective analysis for ambiguous, fast-moving, or strategically important questions.",
-      "version": "0.3.2",
-      "author": { "name": "Gary Shi" },
-      "source": "./reflective-analysis-plugin",
-      "category": "productivity"
-    },
     {
       "name": "rebase",
       "description": "Rebase the current Git branch onto a target branch, with upfront conflict analysis so an AI model can resolve conflicts by intent rather than guesswork.",
-      "version": "0.1.0",
-      "author": { "name": "Gary Shi" },
-      "source": "./rebase-plugin",
+      "version": "0.1.1",
+      "author": {
+        "name": "Gary Shi"
+      },
+      "source": "./rebase",
+      "strict": false,
+      "skills": [
+        "./"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "reflective-analysis",
+      "description": "Orchestrated, staged, leaf-enforced reflective analysis for ambiguous, fast-moving, or strategically important questions.",
+      "version": "0.3.3",
+      "author": {
+        "name": "Gary Shi"
+      },
+      "source": "./reflective-analysis",
+      "strict": false,
+      "skills": [
+        "./"
+      ],
       "category": "productivity"
     },
     {
       "name": "render-claude-session",
       "description": "Save a readable transcript of the current Claude Code session to a Markdown or HTML file.",
-      "version": "0.1.4",
-      "author": { "name": "Gary Shi" },
-      "source": "./render-claude-session-plugin",
+      "version": "0.1.5",
+      "author": {
+        "name": "Gary Shi"
+      },
+      "source": "./render-claude-session",
+      "strict": false,
+      "skills": [
+        "./"
+      ],
       "category": "productivity"
     }
   ]

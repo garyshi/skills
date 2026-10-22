@@ -1,4 +1,5 @@
 ---
+name: rebase
 description: Rebase the current Git branch onto a target branch, with upfront conflict analysis before touching history.
 allowed-tools:
   - Bash(git remote:*)
@@ -10,6 +11,9 @@ allowed-tools:
   - Bash(git status:*)
   - Bash(git add:*)
   - Bash(git rebase:*)
+metadata:
+  version: "0.1.1"
+  short-description: "Rebase the current Git branch onto a target branch, with upfront conflict analysis so an AI model can resolve conflicts by intent rather than guesswork."
 ---
 
 ## Why this skill exists
@@ -22,7 +26,9 @@ So the approach of this skill is simple: **investigate before rebasing.** Before
 
 ---
 
-Rebase the current branch onto **$ARGUMENTS** (default: `origin/main`).
+Rebase the current branch onto the **target branch the user named** (default: `origin/main`).
+
+Target as passed: `$ARGUMENTS` (if this still reads `$ARGUMENTS` literally, or is empty, take the target from the user's request instead).
 
 > **Branch name resolution:**
 > - No argument → default to `origin/main` (fetch first).

@@ -1,6 +1,11 @@
 ---
 name: render-claude-session
 description: Save a readable transcript of the current Claude Code session to a Markdown or HTML file. Use when asked to export, render, save, or dump the current session/conversation/chat log to a file. Default output is Markdown; pass --html for HTML. Writes under the current project directory unless the given name includes a path.
+compatibility: Claude Code only (reads Claude Code session logs).
+metadata:
+  version: "0.1.5"
+  short-description: "Save a readable transcript of the current Claude Code session to a Markdown or HTML file."
+  claude-only: "true"
 ---
 
 # Render Session Log

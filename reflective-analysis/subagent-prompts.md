@@ -6,9 +6,19 @@ The orchestrator pastes/adapts one of these when spawning a subagent. Subagents 
 
 Spawn **all** leaves with the `reflective-leaf` agent type and the per-spawn `model` from the budget table. That agent type has **no `Agent` and no `Skill` tool**, so the no-nesting / no-skill-reentry rule is enforced *mechanically* — not left to prompt compliance. (The prompt-only version of this rule held in one test run, but it is exactly the kind of advisory constraint this skill learned not to trust; the agent type is the real guarantee. See `procedure.md` → "The leaf rule".)
 
-* **The exact `subagent_type` string depends on install.** Installed as a plugin, the agent is namespaced by the plugin: `reflective-analysis:reflective-leaf`. Installed loose in `.claude/agents/reflective-leaf.md`, it is bare `reflective-leaf`. Use whichever appears in your available agent types — check the list and pick the one ending in `reflective-leaf`.
+* **The exact `subagent_type` string depends on install.** Installed as a plugin, the agent is namespaced by the plugin: `reflective-analysis:reflective-leaf`. Copied loose into `.claude/agents/`, it is bare `reflective-leaf`. Use whichever appears in your available agent types — check the list and pick the one ending in `reflective-leaf`.
 * The **leaf discipline** — label Observation/Fact/Trajectory/Extrapolation, tag every source by who produced it + bias + sample/method, search the disconfirming query when attacking, return structured findings, end with "Recommended further lenses" — lives in the `reflective-leaf` agent definition. The templates below are just the **task-specific** part and need not repeat it.
 * **If no `reflective-leaf` type is available at all** (neither plugin- nor loose-installed), fall back to the built-in **`Explore`** type (it also lacks `Agent`, so it blocks spawning — but it still has `Skill`, so it is a weaker guard). **Never spawn leaves as `general-purpose`** — that type has full tool access and is what produced the 259-agent recursion.
+
+## On agents other than Claude Code
+
+Codex, Cursor, Grok, Antigravity and similar agents have no `reflective-leaf` type, so the leaf rule can't be enforced mechanically there. Run the same pipeline with these substitutes, and **say in the final answer that the leaf rule was prompt-enforced only**:
+
+* **Agent type.** Spawn leaves with the most restricted subagent type the platform offers: read/search only, ideally unable to spawn. Never use an unrestricted type if a restricted one exists.
+* **Leaf preamble.** No agent definition supplies the leaf discipline, so read `agents/reflective-leaf.md` in this skill's folder and paste its body (everything after the frontmatter) at the top of **every** leaf prompt, before the task-specific template.
+* **Hard spawn count.** Before each spawn, check the running total against the budget table in `SKILL.md`. Once a phase's cap is reached, stop spawning for that phase, even if a leaf recommends more lenses.
+* **Model tiers.** Haiku / Sonnet / Opus below are Claude names. Map them to the platform's cheap / mid / strongest model if it lets you choose per spawn; otherwise ignore them.
+* **No subagents at all.** Run each lens yourself, in stage order, in a clearly separated section, and finish one lens before starting the next. Tell the user the lenses were not independent, which weakens the adversarial passes in particular.
 
 Each template carries a **model tier** and a **required output format**. Keep them.
 
