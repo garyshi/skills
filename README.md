@@ -4,6 +4,8 @@ Personal agent skills for Claude Code, Codex, Cursor, Grok and Antigravity. Each
 
 ## Skills
 
+**`coding-style-principles`** — Coding style principles for naming, order of definitions, change scope, comments, error handling and reuse. The agent loads it before writing code; run it directly for a style review or cleanup of given files or the current diff.
+
 **`rebase`** — Rebase the current Git branch onto a target branch. Performs upfront conflict analysis before touching history, so the agent can resolve conflicts by understanding intent rather than guessing from diff markers.
 
 **`reflective-analysis`** — Structured analysis for ambiguous or high-stakes questions. Runs a staged pipeline: an orchestrator spawns isolated leaf agents to investigate from different angles, then synthesizes their findings. Useful when you want a thorough, bias-resistant answer rather than a quick one.
