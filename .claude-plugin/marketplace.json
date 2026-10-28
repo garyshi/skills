@@ -7,6 +7,20 @@
   },
   "plugins": [
     {
+      "name": "coding-style-principles",
+      "description": "Coding style principles for naming, order of definitions, change scope, comments, error handling and reuse. Load before writing or modifying code. Run it directly for a style review, cleanup or refactor of given files or the current diff.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Gary Shi"
+      },
+      "source": "./coding-style-principles",
+      "strict": false,
+      "skills": [
+        "./"
+      ],
+      "category": "productivity"
+    },
+    {
       "name": "rebase",
       "description": "Rebase the current Git branch onto a target branch, with upfront conflict analysis so an AI model can resolve conflicts by intent rather than guesswork.",
       "version": "0.1.1",
